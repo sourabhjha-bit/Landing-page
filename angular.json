@@ -13,6 +13,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "sourceMap": true,
+            "optimization": false,
             "outputPath": "dist/landing",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -31,11 +33,13 @@
           },
           "configurations": {
             "production": {
+              "sourceMap": true,
+              "optimization": false,
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2kb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -48,7 +52,8 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "namedChunks": true
             }
           },
           "defaultConfiguration": "production"
@@ -91,5 +96,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
